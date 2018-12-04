@@ -1,16 +1,17 @@
 package com.onecode.litepaltest;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-
+import org.litepal.LitePal;
 import org.litepal.tablemanager.Connector;
 
 
 public class MainActivity extends AppCompatActivity {
+    Album al = new Album();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +31,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 EditText et = (EditText) findViewById(R.id.inputs);
-                Album al = new Album();
+
+                al.setPrice(58f);
                 al.setName(et.getText().toString());
                 // al.setPrice(99);
                 al.save();
+            }
+        });
+
+        Button btdel = (Button) findViewById(R.id.bt_del);
+        btdel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText et = (EditText) findViewById(R.id.inputs);
+                String t = et.getText().toString();
+                LitePal.deleteAll(Album.class);
             }
         });
     }

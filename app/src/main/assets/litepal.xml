@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <litepal>
     <dbname value="demo" />
-    <version value="3" />
+    <version value="5" />
     <list>
         <mapping class="com.onecode.litepaltest.Album" />
         <mapping class="com.onecode.litepaltest.Song" />

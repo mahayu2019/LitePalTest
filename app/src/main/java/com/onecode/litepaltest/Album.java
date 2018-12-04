@@ -11,7 +11,6 @@ public class Album extends LitePalSupport {
     @Column(unique = true, defaultValue = "unknown")  //限制名称不可重复
     private String name;
 
-    @Column(ignore = true)
     private float price;
 
     private byte[] cover;
